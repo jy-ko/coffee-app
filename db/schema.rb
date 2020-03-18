@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_13_084925) do
+ActiveRecord::Schema.define(version: 2020_03_18_062333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,11 +18,14 @@ ActiveRecord::Schema.define(version: 2020_03_13_084925) do
   create_table "equipment", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "type"
   end
 
   create_table "extraction_times", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "time"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -38,6 +41,14 @@ ActiveRecord::Schema.define(version: 2020_03_13_084925) do
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "equipment_id"
+    t.bigint "extraction_time_id"
+    t.bigint "sample_id"
+    t.index ["equipment_id"], name: "index_recipes_on_equipment_id"
+    t.index ["extraction_time_id"], name: "index_recipes_on_extraction_time_id"
+    t.index ["sample_id"], name: "index_recipes_on_sample_id"
+    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "samples", force: :cascade do |t|
@@ -64,4 +75,8 @@ ActiveRecord::Schema.define(version: 2020_03_13_084925) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "recipes", "equipment"
+  add_foreign_key "recipes", "extraction_times"
+  add_foreign_key "recipes", "samples"
+  add_foreign_key "recipes", "users"
 end
