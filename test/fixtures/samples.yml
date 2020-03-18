@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  roaster: MyString
+  origin: MyString
+  roast_date: 2020-03-13
+
+two:
+  roaster: MyString
+  origin: MyString
+  roast_date: 2020-03-13

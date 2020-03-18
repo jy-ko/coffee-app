@@ -1,0 +1,2 @@
+class ExtractionTime < ApplicationRecord
+end
