@@ -1,13 +1,17 @@
 <h1>My Recipes</h1>
-
-<% @recipes.each do |recipe| %>
-    <div class="card" style="width: 18rem;">
-        <%= image_tag("aeropress.jpg", class: "card-img-top") %>
-        <div class="card-body">
-            <p class="card-text">
-                <%= recipe.equipment.name %>
-                <%= recipe.sample.origin %>
-            </p>
-        </div>
-    </div>
-<% end %>
+<%= link_to "Add a new recipe +", new_recipe_path %>
+<div class="container">
+    <% @recipes.each do |recipe| %>
+        <%= link_to recipe_path(recipe) do %>
+            <div class="card" style="width: 18rem;">
+                <%= image_tag("aeropress.jpg", class: "card-img-top") %>
+                <div class="card-body">
+                    <p class="card-text">
+                        <%= recipe.equipment.name %>
+                        <%= recipe.sample.origin %>
+                    </p>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+</div>

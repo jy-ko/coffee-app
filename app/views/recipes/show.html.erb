@@ -1,0 +1,17 @@
+<div class="container mt-3">
+    <div class="card">
+    <div class="card-header">
+        <%= @recipe.created_at.strftime("%d/%m/%Y") %>
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <ul>
+                <li>Extraction Equipment: <%= @recipe.equipment.name %></li>
+                <li>Origin: <%= @recipe.sample.origin %></li>
+                <li><%= @recipe.sample.roaster %></li>
+                <li>Extraction Time: <%= @recipe.extraction_time.time %>s</li>
+            </ul>
+        </blockquote>
+    </div>
+    </div>
+</div>

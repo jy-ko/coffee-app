@@ -3,5 +3,5 @@ class Recipe < ApplicationRecord
     belongs_to :extraction_time
     belongs_to :sample
     belongs_to :user
-
+    
 end

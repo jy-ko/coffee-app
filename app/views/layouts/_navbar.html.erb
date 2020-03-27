@@ -1,12 +1,16 @@
-<nav class="navbar navbar-dark bg-dark">
-  <%= link_to "BetterCup", root_path, class: "navbar-brand" %>
-  <div class="justify-content-end">
+<nav class="navbar">
+  <%= link_to "CoffeeSnob", root_path, class: "navbar-brand" %>
+  <div class="navbar-right">
     <% if current_user %>
         <%= link_to "My Recipes", recipes_path, class:"nav-item" %>
-        <%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe,
-                    edit_user_registration_path, title: 'Edit Profile', class:"nav-item" %>
-        <%= link_to('Logout', destroy_user_session_path,
-        class: 'btn btn-danger nav-item', title: 'Logout', :method => :delete) %>
+        <div class="dropdown">
+          <button class="dropdown-toggle nav-item" data-toggle="dropdown"><%= current_user.email %>
+          </button>
+          <div class="dropdown-menu">
+            <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item"%>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "dropdown-item") %>
+          </div>
+        </div>
     <% else %>
         <%= link_to('Sign In', new_user_session_path, class: 'btn btn-dark btn-sm nav-item', title: 'Sign In') %></li>
     <% end %>

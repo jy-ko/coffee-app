@@ -3,7 +3,6 @@
     background-image: asset-url('espresso.jpg');
     background-size: cover;
     color: #fff;
-    font-family: 'Helvetica Neue' !important;
     font-stretch: expanded;
     padding-top: 24px;
     padding-bottom: 24px;
@@ -17,10 +16,49 @@
 .navbar-nav li a {
   padding: 6px;
 }
+.navbar-brand {
+  color: black;
+}
+.navbar-brand:hover {
+  color: black;
+}
+.navbar-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-footer {
-  text-align: right;
-  padding-right: 8px;
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+  color: black;
+}
+
+.dropdown-menu {
+  border-radius: 0;
+}
+
+.dropdown button {
+  background-color: white;
+  border: none;
+  color: black;
+}
+.dropdown button:hover {
+  color: black;
+}
+
+.navbar {
+  transparency: 0.3;
+}
+.nav-item {
+  color: white;
+}
+.nav-item:hover {
+  color: white;
+  text-decoration: none;
+}
+.dropdown-item:hover {
+  background-color: white;
 }
 
 #user_remember_me.form-check-input {
